@@ -1,0 +1,12 @@
+[build]
+builder = "nixpacks"
+
+[deploy]
+startCommand = "python main.py daemon"
+restartPolicyType = "always"
+restartPolicyMaxRetries = 5
+
+[volumes]
+# 状態保存のためのボリューム設定
+# Railwayのダッシュボードでボリュームを "/app/data" にマウントする必要があります
+/app/data = "sol-screener-data"
